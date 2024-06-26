@@ -243,6 +243,15 @@ local chats = {
     }
   end,
 }),
+  deepseek = {
+    provider = huggingface,
+    options = {
+      model = 'deepseek-ai/DeepSeek-Coder-V2-Instruct'
+    },
+    runOptions = function(messages, config)
+      return { messages = messages }
+    end
+  },
 }
 
 return chats
