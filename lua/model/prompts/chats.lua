@@ -249,7 +249,7 @@ local chats = {
     options = {
       model = 'deepseek-ai/DeepSeek-Coder-V2-Instruct'
     },
-    runOptions = function(messages, config)
+    run = function(messages, config)
       return { messages = messages }
     end
   },
