@@ -253,6 +253,19 @@ local chats = {
       return { messages = messages }
     end
   },
+  deepseek2 = {
+    provider = huggingface,
+    create = input_if_selection,
+    params = {
+      model = 'deepseek-ai/DeepSeek-Coder-V2-Instruct',
+    },
+    run = function(messages, config)
+      return vim.tbl_deep_extend('force', config.params, {
+        messages = messages,
+        system = config.system,
+      })
+    end,
+  },
 }
 
 return chats
