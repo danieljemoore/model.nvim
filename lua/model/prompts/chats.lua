@@ -37,9 +37,14 @@ local openai_chat = {
 ---@type table<string, ChatPrompt>
 local chats = {
   openai = openai_chat,
-  gpt4 = vim.tbl_deep_extend('force', openai_chat, {
+  gpt4o = vim.tbl_deep_extend('force', openai_chat, {
     params = {
       model = 'gpt-4o',
+    },
+  }),
+  gpt4 = vim.tbl_deep_extend('force', openai_chat, {
+    params = {
+      model = 'gpt-4',
     },
   }),
   palm = {
@@ -226,6 +231,17 @@ local chats = {
       }
     end,
   }),
+  mistral = vim.tbl_deep_extend('force', openai_chat, {
+  params = {
+    model = 'mistral-medium-latest',
+  },
+  runOptions = function()
+    return {
+      url = 'https://api.mistral.ai/v1/',
+      authorization = 'Bearer ' .. util.env('MISTRAL_API_KEY'),
+    }
+  end,
+}),
 }
 
 return chats
