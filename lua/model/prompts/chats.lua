@@ -5,6 +5,7 @@ local ollama = require('model.providers.ollama')
 local together = require('model.providers.together')
 local gemini = require('model.providers.gemini')
 local anthropic = require('model.providers.anthropic')
+local huggingface = require('model.providers.huggingface')
 
 local zephyr_fmt = require('model.format.zephyr')
 local starling_fmt = require('model.format.starling')
