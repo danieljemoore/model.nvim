@@ -243,14 +243,13 @@ local chats = {
     }
   end,
 }),
-  deepseek = {
+ deepseek = {
     provider = huggingface,
-    create = input_if_selection,
     options = {
       model = 'deepseek-ai/DeepSeek-Coder-V2-Instruct'
     },
-    runOptions = function(messages)
-      return { messages = messages }
+    builder = function(input)
+      return { inputs = input }
     end
   },
   deepseek2 = {
